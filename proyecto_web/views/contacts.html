@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Contactos</title>
+
+    <script>
+        /**
+         * Función: validarContacto
+         * Descripción: Verifica que los campos obligatorios no estén vacíos
+         */
+        function validarContacto() {
+            let nombre = document.forms["formContacto"]["nombre"].value;
+            let telefono = document.forms["formContacto"]["telefono"].value;
+
+            if (nombre === "" || telefono === "") {
+                alert("Nombre y teléfono son obligatorios");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Nuevo Contacto</h2>
+
+    <form name="formContacto"
+          action="../php/register_contact.php"
+          method="POST"
+          onsubmit="return validarContacto()">
+
+        Nombre: <input type="text" name="nombre"><br><br>
+        Teléfono: <input type="text" name="telefono"><br><br>
+        Email: <input type="email" name="email"><br><br>
+
+        <button type="submit">Guardar Contacto</button>
+    </form>
+
+    <br>
+    <a href="../index.php">Volver al inicio</a>
+
+</body>
+</html>

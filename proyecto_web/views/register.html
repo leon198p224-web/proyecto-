@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Registro de Usuario</title>
+    <script>
+        function validarUsuario() {
+            let nombre = document.forms["formUser"]["nombre"].value;
+            let email = document.forms["formUser"]["email"].value;
+            let pass = document.forms["formUser"]["password"].value;
+
+            if (nombre == "" || email == "" || pass == "") {
+                alert("Todos los campos son obligatorios");
+                return false;
+            }
+            if (pass.length < 6) {
+                alert("La contraseña debe tener al menos 6 caracteres");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Registro de Usuario</h2>
+    <form name="formUser" action="../php/register_user.php" method="POST" onsubmit="return validarUsuario()">
+        Nombre: <input type="text" name="nombre"><br><br>
+        Email: <input type="email" name="email"><br><br>
+        Contraseña: <input type="password" name="password"><br><br>
+        <button type="submit">Registrar Usuario</button>
+    </form>
+    <br><a href="../index.php">Volver al inicio</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Citas</title>
+    <script>
+        function validarCita() {
+            let fecha = document.forms["formCita"]["fecha"].value;
+            let hora = document.forms["formCita"]["hora"].value;
+            let desc = document.forms["formCita"]["descripcion"].value;
+
+            if (fecha == "" || hora == "" || desc == "") {
+                alert("Por favor, llena todos los campos de la cita");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>📅 Agendar Nueva Cita</h2>
+    <form name="formCita" action="../php/register_appointment.php" method="POST" onsubmit="return validarCita()">
+        Fecha: <input type="date" name="fecha"><br><br>
+        Hora: <input type="time" name="hora"><br><br>
+        Descripción: <br>
+        <textarea name="descripcion" rows="4" cols="30" placeholder="Motivo de la cita..."></textarea><br><br>
+        <button type="submit">Agendar Cita</button>
+    </form>
+    <br>
+    <a href="../index.php">Volver al menú principal</a>
+</body>
+</html>
